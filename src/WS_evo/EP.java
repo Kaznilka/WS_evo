@@ -97,18 +97,23 @@ class ServeOne extends Thread {
                 System.out.println(sb.toString());
                     //String str = in.readLine();
 */
+                ByteArrayOutputStream baos =
+                        new ByteArrayOutputStream();
+
                 InputStream bais =
                         new ByteArrayInputStream(baos.toByteArray());
 
-                //Object o = unmarshaller.unmarshal(bais);
+
+
 
                     JAXBContext jaxbContext = JAXBContext.newInstance(Request.class);
-                    //Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-                    //Request request = (Request) jaxbUnmarshaller.unmarshal(in.readLine());
-                Unmarshaller unmarshaller =  jaxbContext.createUnmarshaller();
-                    Request request = unmarshaller.unmarshal(?);
+                  //Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+                   //Request request = (Request) jaxbUnmarshaller.unmarshal(in.readLine());
+                   Unmarshaller unmarshaller =  jaxbContext.createUnmarshaller();
+                   //Request request = unmarshaller.unmarshal(socket);
                     //if (str.equals("END"))
-                    System.out.println("Echo: " + request);
+                String STRrequest = (String) unmarshaller.unmarshal(bais);
+                    System.out.println("Echo: " + STRrequest);
                     //out.println(str);
                 break;
                                                 }
